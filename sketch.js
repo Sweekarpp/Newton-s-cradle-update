@@ -20,6 +20,8 @@ function setup() {
 	world = engine.world;
 
 
+
+
 roof=new Roof(width/3,height/4,width/7,20);
 
 diameter=40;
@@ -46,7 +48,7 @@ rope4=new Rope(ball4.body,roof.body,+diameter*1,0);
 rope5=new Rope(ball5.body,roof.body,+diameter*2,0);
 
 	Engine.run(engine);
-  
+
 }
 
 
@@ -56,7 +58,7 @@ function draw() {
 
   background("white");
 
-  
+
   roof.display();
 
 	ball1.display();
@@ -78,8 +80,8 @@ function draw() {
 	rope4.display();
 
 	rope5.display();
-  
- 
+
+
 }
 function drawline(constraint){
 
@@ -96,16 +98,8 @@ function drawline(constraint){
 	line(ballbodyposition.x,ballbodyposition.y,roofbodyx,roofbodyy);
 
 }
-function keyPressed(){
+function mouseDragged(){
 
-	if(keyCode==UP_ARROW){
-
-		Matter.Body.applyForce(ball1.body,ball1.body.position,{
-
-			x:-50,y:-45
-
-		})
-
-	}
+Matter.Body.setPosition(ball1.body, { x: mouseX, y: mouseY});
 
 }
